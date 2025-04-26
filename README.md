@@ -36,7 +36,7 @@ smart-grocery-agent/
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Denyme24/smart-grocery-agent.git
    cd smart-grocery-agent
    ```
 
