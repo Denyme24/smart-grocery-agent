@@ -19,12 +19,12 @@ func main() {
         log.Fatalf("Error loading .env file: %v", err)
     }
 
-    // Print the GEMINI_API_KEY to confirm it is loaded
+    
     apiKey := os.Getenv("GEMINI_API_KEY")
     if apiKey == "" {
         log.Fatalf("GEMINI_API_KEY environment variable is empty or not set")
     }
-    log.Printf("GEMINI_API_KEY: %s", apiKey)
+    
 
     app := fiber.New()
 
