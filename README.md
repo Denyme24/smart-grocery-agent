@@ -21,6 +21,8 @@ smart-grocery-agent/
 │   ├── services/
 │   │   └── ai_agent.go        # Core AI agent logic for processing meals and generating grocery lists
 ├── .env                       # Environment variables (e.g., GEMINI_API_KEY)
+├── Dockerfile                 # Docker configuration for containerization
+├── docker-compose.yml         # Docker Compose configuration for easy deployment
 ├── go.mod                     # Go module file
 ├── go.sum                     # Dependency lock file
 └── README.md                  # Project documentation
@@ -52,6 +54,8 @@ smart-grocery-agent/
    ```
 
 ## Usage
+
+### Running Locally
 
 1. Start the server:
 
@@ -118,6 +122,43 @@ smart-grocery-agent/
      }
    }
    ```
+
+### Running with Docker
+
+1. Make sure you have Docker and Docker Compose installed on your machine.
+
+2. Build and start the Docker container:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   Or to run it in the background:
+
+   ```bash
+   docker-compose up --build -d
+   ```
+
+3. To stop the container:
+
+   ```bash
+   docker-compose down
+   ```
+
+4. Test the `/grocery-list` endpoint using Postman or `curl`:
+
+   - **URL**: `http://localhost:3002/grocery-list` (Note: When using Docker, use port 3002 instead of 3000)
+   - **Method**: `POST`
+   - **Headers**:
+     - `Content-Type: application/json`
+   - **Body**:
+     ```json
+     {
+       "meals": ["Chicken biryani", "sushi", "tacos"]
+     }
+     ```
+
+   > **Important**: When using Docker Compose, send requests to port 3002 (e.g., http://localhost:3002/grocery-list), as this is the port mapped in docker-compose.yml.
 
 ## Key Components
 
